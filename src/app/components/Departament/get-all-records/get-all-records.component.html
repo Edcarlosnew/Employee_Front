@@ -1,0 +1,58 @@
+<!-- implementar a view do componente com alguns elementos já utilizados anteriormente -->
+<div class="container-fluid"><!--Div principal-->
+    <div class="col-md-12"><!--Div para exibir os dados - se existirem -->
+
+        <div *ngIf="departamentsList != 0; else noView"><!--esta div será utilizada para a diretiva estrutural *ngIf-->
+            <h3>{{ titleComp }}</h3>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">IdDepartamento</th>
+                        <th scope="col">Nome do Departamento</th>
+                        <th scope="col">Descrição</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let items of departamentsList"><!-- aqui será aplicada a diretiva estrutural *ngfor -->
+                
+
+                        <td>{{ items.id }}</td>
+                        <td>{{ items.nameDepartament }}</td>
+                        <td>{{ items.description }}</td>
+
+                        <button class="btn btn-outline-primary btn-sm" routerLink = "/updateRegister/{{ items.id }}">
+                            Editar
+                        </button>
+
+                        <button class="btn btn-outline-primary btn-sm" routerLink = "/getOne/{{ items.id }}">
+                            Exibir
+                        </button>
+
+                        <button class="btn btn-outline-primary btn-sm" (click)= "delDepartamentRegister(items.id)">
+                            Excluir
+                        </button>
+                        
+
+                    </tr>                 
+
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+    <ng-template #noView><!--template/view que será exibida - se o dados não existirem-->
+        <div class="text-center">
+            <p>
+                Registros não encontrados! Por Favor, cadastre-se.
+            </p>
+            <button class="btn btn-outline-primary" routerLink = "/addRegister">
+                Criar Registro
+            </button>
+            
+        </div>
+    </ng-template>
+</div>

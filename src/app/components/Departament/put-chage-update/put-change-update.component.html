@@ -1,0 +1,30 @@
+<!-- Criação do formulario para obtenção dos dados para armazenamento -->
+
+<div class="container">
+
+    <div class="col-md-12">
+
+        <h3>{{ titleComp }}</h3>
+
+        <div class="form-group">
+            <label for="departament"><b>Departamento:</b></label>
+            <input type="text" [(ngModel)]="departamentUpdateData.nameDepartament" placeholder="Informe o Departamento"
+            class="form-control" />
+
+            <label for="description"><b>Descrição:</b></label>
+            <input type="text" [(ngModel)]="departamentUpdateData.description" placeholder="Descrição"
+            class="form-control" />
+            
+        </div>
+
+        <div class="form-group">
+
+        <button class="btn btn-success btn-large btn-block mt-3" (click)="updateDepartamentRegister()">
+            Atualizar Departamento
+        </button> 
+        </div>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,24 @@
+<!-- Formulário de registro de departamentos   -->
+<div class="container">
+
+  <h2>{{ titleComp }}</h2>
+
+  <form (ngSubmit)="insertOneRegister()" #registerForm="ngForm">
+
+    <div class="form-group">
+      <label for="nameDepartament"><b>Nome do departamento:</b></label>
+      <input type="text" name="nameDepartament" [(ngModel)]="insertRegister.nameDepartament" required minlength="2" class="form-control" placeholder="NOME" required="">
+    </div><br>
+
+    <div class="form-group">
+      <label for="description"><b>Descrição:</b></label>
+      <input type="text" name="nameDepartament" [(ngModel)]="insertRegister.description" required minlength="2" class="form-control" placeholder="DESCRIÇÃO" required="">
+    </div>
+        
+    <button type="submit" [disabled]="!registerForm.form.valid" class="btn btn-primary mt-3">Adicionar</button>
+    <button class="btn btn-primary mt-3 mx-1" routerLink="/showRegister">Voltar</button>
+  </form>
+
+</div>
+
+

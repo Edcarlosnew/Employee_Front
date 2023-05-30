@@ -1,0 +1,47 @@
+
+<!-- Criação do formulario para obtenção dos dados para armazenamento -->
+
+<div class="container">
+
+    <div class="col-md-12">
+  
+        <h3>{{ titleComp }}</h3>
+  
+        <div class="form-group">
+            
+          <div class="form-group">
+            <label for="id"><b>ID:</b></label>
+            <input type="text" [(ngModel)]="employeeOneRegister.id" placeholder="Informe o ID" class="form-control" name="id" readonly/><br>
+          </div>
+          
+          <div class="form-group">
+            <label for="nameEmployee"><b>Nome:</b></label>
+            <input type="text" [(ngModel)]="employeeOneRegister.nameEmployee" placeholder="Informe o Nome" class="form-control" name="nameEmployee" /><br>
+          </div>
+          
+          <div class="form-group">
+            <label for="departament"><b>Departamento:</b></label>
+            <input type="text" [(ngModel)]="employeeOneRegister.departament" placeholder="Informe o Departamento" class="form-control" name="departament" /><br>
+          </div>
+          
+          <!--
+          <div class="form-group">
+            <label for="hiringDate"><b>Data de Contratação:</b></label>
+            <input type="text" [(ngModel)]="employeeOneRegister.hiringDate" placeholder="Informe a Data de Contratação" class="form-control" name="hiringDate" />
+          </div>
+          -->
+  
+        </div>
+  
+        <div class="form-group">
+  
+            <button class="btn btn-success btn-large btn-block mt-3" (click) = "employeeOneRegister()">
+                Atualizar Funcionário
+            </button>
+  
+        </div>
+  
+    </div>
+  
+  </div>
+  

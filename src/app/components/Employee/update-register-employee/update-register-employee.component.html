@@ -1,0 +1,154 @@
+  <!-- Formulário de registro de funcionários -->
+  <div class="container">
+
+    <h2>{{ titleComp }}</h2>
+  
+    <form (ngSubmit)="updateEmployeeRegister()" #registerForm="ngForm">    
+  
+  
+      <div class="form-group">
+        
+        
+        <div class="col">
+          <label for="nameEmployee"><b>Nome do funcionário:</b></label>
+          <input type="text" name="nameEmployee" [(ngModel)]="employeeUpdate.nameEmployee" class="form-control name_Func" placeholder="NOME DO FUNCIONÁRIO"><br>
+        </div>
+  
+        <div class="col">
+          <label for="departament"><b>Departamento:</b></label>
+          <select name="departament" [(ngModel)]="employeeUpdate.departamentId" class="form-control name_Depart">
+            <option value="">Selecione um departamento</option>
+            <option *ngFor="let departamento of departamentList" [value]="departamento.id">{{ departamento.nameDepartament }}</option>     
+          </select>
+        </div><br>
+  
+        <div class="col">
+          <label for="cpf"><b>CPF:</b></label>
+          <input type="text" class="form-control Cpf" [(ngModel)]="employeeUpdate.cpf" name="cpf" placeholder="Ex: 335.846.899-60"><br>
+        </div>
+  
+        <div class="col">
+          <label for="rg"><b>Rg:</b></label>
+          <input type="text" class="form-control Rg" [(ngModel)]="employeeUpdate.rg" name="rg" placeholder="Ex: 41.697.963-x"><br>
+        </div>
+  
+        <div class="col">
+          <label for="Orgao_Expeditor"><b>Orgão Expeditor:</b></label>
+          <input type="text" class="form-control Org_Exp" [(ngModel)]="employeeUpdate.expeditionAgency" name="Org_Exp" placeholder="Ex: SSP/SP" title="O órgão expedidor deve seguir o padrão de 3 letras seguidas por / e 2 letras, como por exemplo SSP/SP."><br>
+        </div>     
+  
+        <div class="form-group">
+          <div class="col">
+            <label for="hiringDate"><b>Data de contratação:</b></label>
+          <input type="datetime-local" class="form-control Date" placeholder="Informe a data de contratação" [(ngModel)]="employeeUpdate.hiringDate" name="hiringDate" id="hiringDate" max="{{ maxDate }}">
+        </div>
+        </div><br> 
+        
+      
+
+
+        <div class="form-group row">
+          <div class="col">
+            <label for="cep"><b>CEP:</b></label>
+            <input type="text" class="form-control zipCode" [(ngModel)]="employeeUpdate.zipCode" name="zipCode" placeholder="Ex: 99999-999">
+            </div>
+          
+  
+          <div class="col">
+          <label for="endereço"><b>Endereço:</b></label>
+          <input type="text" class="form-control address" [(ngModel)]="employeeUpdate.address" name="address" placeholder="Endereço">
+          </div>
+        </div><br> 
+        
+        
+        <div class="form-group row">
+          <div class="col">
+          <label for="complemento"><b>Complemento:</b></label>
+          <input type="text" class="form-control complement" [(ngModel)]="employeeUpdate.complement" name="complement" placeholder="Complemento">
+          </div>
+  
+          <div class="col">
+          <label for="bairro"><b>Bairro:</b></label>
+          <input type="text" class="form-control neighborhood" [(ngModel)]="employeeUpdate.neighborhood" name="neighborhood" placeholder="Bairro">
+          </div>
+        </div><br> 
+  
+        <div class="form-group row">
+          <div class="col">
+          <label for="estado"><b>Estado:</b></label>
+          <input type="text" class="form-control state" [(ngModel)]="employeeUpdate.state" name="state" placeholder="Estado">
+          </div>
+  
+          <div class="col">
+          <label for="cidade"><b>Cidade:</b></label>
+          <input type="text" class="form-control city" [(ngModel)]="employeeUpdate.city" name="city" placeholder="Cidade">
+          </div>
+        </div><br> 
+  
+        <div class="form-group row">
+          <div class="col">
+            <label for="telefone"><b>Telefone:</b></label>
+            <input type="text" class="form-control phone" [(ngModel)]="employeeUpdate.mobilePhone" name="mobilePhone" placeholder="Ex: (99) 99999-9999">
+            </div>
+  
+          <div class="col">
+          <label for="salario"><b>Salário:</b></label>
+          <input type="number" class="form-control salary" [(ngModel)]="employeeUpdate.salary" name="salary" placeholder="Salário">
+          </div>
+        </div><br>
+  
+      </div>   
+  
+      <button type="submit" class="btn btn-success mt-3">Atualizar Funcionário</button>
+      <button class="btn btn-primary mt-3 mx-1" routerLink="/showEmployee">Voltar</button>
+  
+    </form>  
+    
+    
+  
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Formulário de registro de funcionários 
+<div class="container">
+
+    <h2>{{ titleComp }}</h2>
+  
+    <form (ngSubmit)="employeeUpdate()" #registerForm="ngForm">
+  
+      <div class="form-group">
+        <label for="nameEmployee"><b>Nome do funcionário:</b></label>
+        <input type="text" name="nameEmployee" [(ngModel)]="employeeUpdate.nameEmployee" required minlength="2" class="form-control" placeholder="NOME DO FUNCIONÁRIO">
+      </div><br>
+  
+      <div class="form-group">
+        <label for="departament"><b>Departamento:</b></label>
+        <input type="text" name="departament" [(ngModel)]="employeeUpdate.departament" required minlength="2" class="form-control" placeholder="DEPARTAMENTO">
+      </div><br>
+  
+      <div class="form-group">
+        <label><b>Data de contratação:</b></label><br>
+        <input type="datetime-local" class="form-control" placeholder="Informe a data de contratação" [(ngModel)]="employeeUpdate.hiringDate" name="hiringDate" required [max]="currentDate">
+      </div>
+      
+  
+      <button type="submit" [disabled]="!registerForm.form.valid" 
+      class= "btn btn-success btn-large btn-block mt-3" (click)="updateEmployeeRegister()">Atualizar Funcionário</button>
+      <button class="btn btn-primary mt-3 mx-1" routerLink="/showEmployee">Voltar</button>
+    </form>
+  
+  </div>
+  -->

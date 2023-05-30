@@ -1,0 +1,62 @@
+<div class="container-">
+  <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <button
+          routerLink="showRegister"
+          class="m-1 btn btn-light btn-outline-primary"
+          Button
+        >
+          Departamentos
+        </button>
+      </li>
+
+      <li class="nav-item">
+        <button
+          routerLink="showEmployee"
+          class="m-1 btn btn-light btn-outline-primary"
+          Button
+        >
+          Funcionários
+        </button>
+      </li>
+
+      <div id="relogio">
+        <script>
+          function mostrarHora() {
+            // Define a função "mostrarHora"
+            const data = new Date(); // Cria um objeto "Date" para armazenar a data e hora atuais
+            let horas = data.getHours(); // Obtém as horas da data atual
+            let minutos = data.getMinutes(); // Obtém os minutos da data atual
+            let segundos = data.getSeconds(); // Obtém os segundos da data atual
+            let dia = data.getDate(); // Obtém o dia da data atual
+            let mes = data.getMonth() +1; // Obtém o mês da data atual e adiciona 1
+
+            horas = (horas < 10 ? "0" : "") + horas; // Formata as horas com um zero à esquerda se elas tiverem apenas um dígito
+            minutos = (minutos < 10 ? "0" : "") + minutos; // Formata os minutos com um zero à esquerda se eles tiverem apenas um dígito
+            segundos = (segundos < 10 ? "0" : "") + segundos; // Formata os segundos com um zero à esquerda se eles tiverem apenas um dígito
+            dia = (dia < 10 ? "0" : "") + dia; // adiciona um zero à esquerda se o dia tiver apenas um dígito
+            mes = (mes < 10 ? "0" : "") + mes; // adiciona um zero à esquerda se o mês tiver apenas um dígito
+
+            const dataAtual = `${dia}/${mes}/${data.getFullYear()}`; // cria uma string formatada com o dia, mês e ano atual
+            const horaAtual = `${horas}:${minutos}:${segundos}`;
+
+            document.getElementById(
+              "relogio"
+            ).innerHTML = `${dataAtual} ${horaAtual}`; // exibe a data e hora atual na div com id "relogio"
+          }
+
+          setInterval(mostrarHora, 1000); // Chama a função "mostrarHora" a cada segundo para atualizar o relógio
+        </script>
+      </div>
+    </ul>
+  </nav>
+
+  <div class="text-center">
+    <h3 class="mb-2"><b>Projeto Gestão de Funcionários</b></h3>
+    <h5>Portal de gerenciamento de conteúdo</h5>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
